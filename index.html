@@ -16,8 +16,13 @@
 <button onclick="a2('ON')">A2 ON</button>
 <button onclick="a2('OFF')">A2 OFF</button>
 
+<br><br>
+
+<p>Valor ESP32:</p>
+<div id="valor" style="font-size:24px;">---</div>
+
 <script>
-const url = "https://script.google.com/macros/s/AKfycbzSxXbq3DTetmoDqfgz6lGp8FGs8HiMgdq5wbd_4y08VgK5b1Bzwhv0XY0szdGs6uQ/exec";
+const url = "https://script.google.com/macros/s/AKfycbwzyoAMlIESmw1LW4IViSf5pNNXdJ2LrNNwiVy2QQ4HXhmy-7paNsh5sq922ZU3iNY/exec";
 
 function a1(valor) {
   window.open(`${url}?celda=A1&valor=${valor}`);
@@ -26,6 +31,17 @@ function a1(valor) {
 function a2(valor) {
   window.open(`${url}?celda=A2&valor=${valor}`);
 }
+
+function actualizarValor() {
+  fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("valor").innerText = data.A3 || "---";
+    });
+}
+
+setInterval(actualizarValor, 2000);
+actualizarValor();
 </script>
 
 </body>
