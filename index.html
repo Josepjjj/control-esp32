@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <meta charset="UTF-8">
+  <title>Control ESP32</title>
+</head>
 <body>
 
 <h2>Control ESP32</h2>
 
-<button onclick="setA1('ON')">A1 ON</button>
-<button onclick="setA1('OFF')">A1 OFF</button>
-
-<div id="led1" style="width:20px;height:20px;border-radius:50%;background:red;"></div>
+<button onclick="a1('ON')">A1 ON</button>
+<button onclick="a1('OFF')">A1 OFF</button>
 
 <br><br>
 
-<button onclick="setA2('ON')">A2 ON</button>
-<button onclick="setA2('OFF')">A2 OFF</button>
-
-<div id="led2" style="width:20px;height:20px;border-radius:50%;background:red;"></div>
+<button onclick="a2('ON')">A2 ON</button>
+<button onclick="a2('OFF')">A2 OFF</button>
 
 <script>
 const url = "https://script.google.com/macros/s/AKfycbzSxXbq3DTetmoDqfgz6lGp8FGs8HiMgdq5wbd_4y08VgK5b1Bzwhv0XY0szdGs6uQ/exec";
 
-function setA1(valor) {
-  fetch(`${url}?celda=A1&valor=${valor}`);
-  document.getElementById("led1").style.background = valor === "ON" ? "green" : "red";
+function a1(valor) {
+  window.open(`${url}?celda=A1&valor=${valor}`);
 }
 
-function setA2(valor) {
-  fetch(`${url}?celda=A2&valor=${valor}`);
-  document.getElementById("led2").style.background = valor === "ON" ? "green" : "red";
+function a2(valor) {
+  window.open(`${url}?celda=A2&valor=${valor}`);
 }
 </script>
 
