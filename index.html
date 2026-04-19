@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Control ESP32</h2>
+
+<button onclick="setA1('ON')">A1 ON</button>
+<button onclick="setA1('OFF')">A1 OFF</button>
+
+<div id="led1" style="width:20px;height:20px;border-radius:50%;background:red;"></div>
+
+<br><br>
+
+<button onclick="setA2('ON')">A2 ON</button>
+<button onclick="setA2('OFF')">A2 OFF</button>
+
+<div id="led2" style="width:20px;height:20px;border-radius:50%;background:red;"></div>
+
+<script>
+const url = "TU_URL/exec";
+
+function setA1(valor) {
+  fetch(`${url}?celda=A1&valor=${valor}`);
+  document.getElementById("led1").style.background = valor === "ON" ? "green" : "red";
+}
+
+function setA2(valor) {
+  fetch(`${url}?celda=A2&valor=${valor}`);
+  document.getElementById("led2").style.background = valor === "ON" ? "green" : "red";
+}
+</script>
+
+</body>
+</html>
