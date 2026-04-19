@@ -19,17 +19,19 @@
 <br><br>
 
 <p>Valor ESP32:</p>
-<div id="valor" style="font-size:24px;">---</div>
+<div id="valor" style="width:100px;height:40px;border:1px solid black;font-size:20px;display:flex;align-items:center;justify-content:center;">
+  ---
+</div>
 
 <script>
 const url = "https://script.google.com/macros/s/AKfycbwzyoAMlIESmw1LW4IViSf5pNNXdJ2LrNNwiVy2QQ4HXhmy-7paNsh5sq922ZU3iNY/exec";
 
 function a1(valor) {
-  window.open(`${url}?celda=A1&valor=${valor}`);
+  fetch(`${url}?celda=A1&valor=${valor}`, { mode: 'no-cors' });
 }
 
 function a2(valor) {
-  window.open(`${url}?celda=A2&valor=${valor}`);
+  fetch(`${url}?celda=A2&valor=${valor}`, { mode: 'no-cors' });
 }
 
 function actualizarValor() {
